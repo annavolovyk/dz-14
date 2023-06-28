@@ -1,13 +1,13 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="Man and Woman Tests">
+<suite name="Selenium Tests Check">
 
     <test name="Selenium">
         <packages>
             <package name="seleniumtests"/>
         </packages>
         <classes>
-            <class name="seleniumtests.DemoQATests1"/>
-            <class name="seleniumtests.DemoQATests2"/>
+            <class name="seleniumtests.ElementsPageTests"/>
+            <class name="seleniumtests.WebTablesPageTests"/>
         </classes>
     </test>
 </suite>
