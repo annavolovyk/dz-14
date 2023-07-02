@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.List;
 
-public class DurationPageObject {
+public class AbstractPageObject {
     private final static int DURATION_TO_WAIT_DEFAULT = 5;
     protected WebDriver driver;
 

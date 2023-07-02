@@ -2,8 +2,10 @@ package pageobjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.JavascriptExecutor;
+import org.testng.annotations.Test;
 
-public class WebTablesPage extends DurationPageObject {
+public class WebTablesPage extends AbstractPageObject {
     private final By addButton = By.xpath("//button[contains(text(),'Add')]");
     private final By enterFirstName = By.xpath("//input[@id='firstName']");
     private final By enterLastName = By.xpath("//input[@id='lastName']");
@@ -20,18 +22,29 @@ public class WebTablesPage extends DurationPageObject {
         this.driver = driver;
         this.driver.get("https://demoqa.com/webtables");
     }
-    public MainPage runSecondTests(){
+    public void clickOnAddButton() {
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", getElement(addButton));
         getElement(addButton).click();
-        getElement(enterFirstName).sendKeys("John");
-        getElement(enterLastName).sendKeys("Smith");
-        getElement(enterAge).sendKeys("65");
-        getElement(enterEmail).sendKeys("johnsmith@gmail.com");
-        getElement(enterSalary).sendKeys("6000$");
-        getElement(enterDepartment).sendKeys("Medicine");
-        getElement(submitButton).click();
-        getElement(checkRecord).getAttribute("John");
-        getElement(editRecord).clear();
-        getElement(editRecord).sendKeys("500$");
-        return new MainPage(driver);
     }
+
+    public void enterData(String firstname, String lastname, String age, String email, String salary, String department){
+        getElement(enterFirstName).sendKeys(firstname);
+        getElement(enterLastName).sendKeys(lastname);
+        getElement(enterAge).sendKeys(age);
+        getElement(enterEmail).sendKeys(email);
+        getElement(enterSalary).sendKeys(salary);
+        getElement(enterDepartment).sendKeys(department);
+    }
+
+
+    public void clickOnSubmitButton(){
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", getElement(submitButton));
+        getElement(submitButton).click();}
+
+
+        public void addRecordToRegistrationForm(String firstname, String anothersalary){
+            getElement(checkRecord).getAttribute(firstname);
+            getElement(editRecord).clear();
+            getElement(editRecord).sendKeys(anothersalary);
+        }
 }

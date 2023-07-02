@@ -3,7 +3,7 @@ package pageobjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class MainPage extends DurationPageObject {
+public class MainPage extends AbstractPageObject{
     private final By headerText = By.cssSelector(".main-header");
 
     public MainPage(WebDriver driver) {

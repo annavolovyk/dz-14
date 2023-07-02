@@ -1,15 +1,20 @@
 package seleniumtests;
-
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageobjects.ElementsPage;
+import org.openqa.selenium.JavascriptExecutor;
 
     public class ElementsPageTests extends BaseTest {
 
+
         @Test
-        public void checkElementsPage() {
-            new ElementsPage(driver) {
-            };
-            Assert.assertEquals(driver.getCurrentUrl(), "https://demoqa.com/elements", "The user has successfully clicked on button");
+        public void checkButtonsElement() {
+            new ElementsPage(driver)
+            .clickOnButtons();
+            String expectedURL = "https://demoqa.com/buttons";
+            String actualURL = driver.getCurrentUrl();
+            Assert.assertEquals(actualURL, expectedURL);
         }
     }
