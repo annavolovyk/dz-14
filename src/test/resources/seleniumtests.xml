@@ -1,0 +1,14 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Selenium Tests Check">
+
+    <test name="Selenium">
+        <packages>
+            <package name="seleniumtests"/>
+        </packages>
+        <classes>
+            <class name="seleniumtests.ElementsPageTests"/>
+            <class name="seleniumtests.ButtonsPageTests"/>
+            <class name="seleniumtests.WebTablesPageTests"/>
+        </classes>
+    </test>
+</suite>
